@@ -2,7 +2,7 @@ function responsive_img_bg(target, tiny_breakpoint, large_breakpoint, max_breakp
 
 /* Objectif
 
-	- Gestion d'un arriere-plan en fullscreen en chargeant une taille d'image differente suivante la taille de l'ecran
+	- Gestion d'un arriere-plan en fullscreen en chargeant une taille d'image differente suivant la taille de l'ecran
 	- Ainsi, le chargement de la page est optimisé suivant le périphérique (performance)
 
 */
