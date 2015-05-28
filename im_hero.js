@@ -1,4 +1,4 @@
-function responsive_img_bg(target, tiny_breakpoint, large_breakpoint, max_breakpoint){
+function im_hero(target, tiny_breakpoint, large_breakpoint, max_breakpoint){
 
 /* Objectif
 
@@ -10,9 +10,9 @@ function responsive_img_bg(target, tiny_breakpoint, large_breakpoint, max_breakp
 /* Arguments
 
 	target 				: string
-	tiny_breakpoint 	: number
-	large_breakpoint 	: number
-	max_breakpoint 		: number
+	tiny_breakpoint 	: integer
+	large_breakpoint 	: integer
+	max_breakpoint 		: integer
 
 */
 
@@ -28,21 +28,21 @@ function responsive_img_bg(target, tiny_breakpoint, large_breakpoint, max_breakp
 
 	JS
 	$(document).ready(function(){
-		responsive_img_bg('.fn-responsive-img-bg', 640, 768, 1050); 1ere initialisation
+		im_hero('.fn-im_hero', 640, 768, 1050); 1ere initialisation
 		$(window).resize(function() {
-			responsive_img_bg('.fn-responsive-img-bg', 640, 768, 1050); a chaque resize de la fenetre
+			im_hero('.fn-im_hero', 640, 768, 1050); a chaque resize de la fenetre
 		});
 	});
 
 	HTML
-	<div class="fn-responsive-img-bg" 
-		data-img-tiny="http://lorempixel.com/output/abstract-q-c-640-480-8.jpg" 
-		data-img-large="http://lorempixel.com/output/abstract-q-c-1024-768-8.jpg" 
-		data-img-max="http://lorempixel.com/output/abstract-q-c-1500-700-8.jpg">
+	<div class="fn-im_hero" 
+		data-tiny-img="http://lorempixel.com/output/abstract-q-c-640-480-8.jpg" 
+		data-large-img="http://lorempixel.com/output/abstract-q-c-1024-768-8.jpg" 
+		data-max-img="http://lorempixel.com/output/abstract-q-c-1500-700-8.jpg">
 	</div>
 
 	CSS (arriere-plan fullscreen)
-	.fn-responsive-img-bg {
+	.fn-im_hero {
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
@@ -61,13 +61,13 @@ function responsive_img_bg(target, tiny_breakpoint, large_breakpoint, max_breakp
 		var $this = $(this),
 			ww_w = $(window).width(),
 			ww_h = $(window).height(),
-			img_tiny = $(this).attr("data-img-tiny"),
-			img_large = $(this).attr("data-img-large"),
-			img_max = $(this).attr("data-img-max");
+			img_tiny = $(this).attr("data-tiny-img"),
+			img_large = $(this).attr("data-large-img"),
+			img_max = $(this).attr("data-max-img");
 
 		// 1. si les attributs sont manquants ou vides
 		if(!img_tiny || !img_large || !img_max) {
-			console.log('One or several "data-img-XXX" attributes are missing or empty, please add/fill first :)');
+			console.log('One or several "data-XXX-img" attributes are missing or empty, please add/fill them first :)');
 			return;
 		}
 
@@ -78,8 +78,8 @@ function responsive_img_bg(target, tiny_breakpoint, large_breakpoint, max_breakp
 		
 		// 3. chargement de format d'image different suivant les breakpoints definis
 
-		// si on est au format tiny, type mobile (< tiny_breakpoint)
-		if(ww_w < tiny_breakpoint) {
+		// si on est au format tiny, type mobile
+		if(ww_w <= tiny_breakpoint) {
 			if(!$this.hasClass('is-tiny')){
 				$this
 					.addClass('is-tiny')
@@ -89,8 +89,8 @@ function responsive_img_bg(target, tiny_breakpoint, large_breakpoint, max_breakp
 			$this.css('height', ww_h);
 		}
 
-		// si on est au format large, type tablette (>= tiny_breakpoint ET < large_breakpoint)
-		else if(ww_w >= tiny_breakpoint && ww_w <= large_breakpoint) {
+		// si on est au format large, type tablette
+		else if(ww_w > tiny_breakpoint && ww_w <= large_breakpoint) {
 			if(!$this.hasClass('is-large')){
 				$this
 					.addClass('is-large')
@@ -99,7 +99,7 @@ function responsive_img_bg(target, tiny_breakpoint, large_breakpoint, max_breakp
 			}
 			$this.css('height', ww_h);
 		}
-		// si on est au format max, type desktop (> max_breakpoint)
+		// si on est au format max, type desktop
 		else {
 			if(!$this.hasClass('is-max')){
 				$this
