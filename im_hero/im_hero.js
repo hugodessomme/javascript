@@ -12,13 +12,18 @@ function im_hero(target, tiny_breakpoint, large_breakpoint, max_breakpoint){
 		var $this = $(this),
 			ww_w = $(window).width(),
 			ww_h = $(window).height(),
-			img_tiny = $(this).attr("data-tiny-img"),
-			img_large = $(this).attr("data-large-img"),
-			img_max = $(this).attr("data-max-img");
+			sm_img = $(this).attr("data-sm-img"),
+			lg_img = $(this).attr("data-lg-img"),
+			max_img = $(this).attr("data-max-img");
 
-		// 1. si les attributs sont manquants ou vides
-		if(!img_tiny || !img_large || !img_max) {
-			console.log('One or several "data-XXX-img" attributes are missing or empty, please add/fill them first :)');
+		// 1. si les arguments de la fonction sont manquants
+		if(typeof target === 'undefined' || typeof tiny_breakpoint === 'undefined' || typeof large_breakpoint === 'undefined' || typeof max_breakpoint === 'undefined') { 
+            console.log('One or several argument(s) are missing or empty, please add/fill it first :)'); 
+        }
+
+		// 1bis. si les attributs sont manquants ou vides
+		if(!sm_img || !lg_img || !max_img) {
+			console.log('One or several "data-XXX-img" attribute(s) are missing or empty, please add/fill them first :)');
 			return;
 		}
 
@@ -29,34 +34,34 @@ function im_hero(target, tiny_breakpoint, large_breakpoint, max_breakpoint){
 		
 		// 3. chargement de format d'image different suivant les breakpoints definis
 
-		// si on est au format tiny, type mobile
+		// si on est au tiny_breakpoint
 		if(ww_w <= tiny_breakpoint) {
-			if(!$this.hasClass('is-tiny')){
+			if(!$this.hasClass('is-sm-img')){
 				$this
-					.addClass('is-tiny')
-					.removeClass('is-large is-max')
-					.css("background-image", "url("+ img_tiny +")");
+					.addClass('is-sm-img')
+					.removeClass('is-lg-img is-max-img')
+					.css("background-image", "url("+ sm_img +")");
 			}
 			$this.css('height', ww_h);
 		}
 
-		// si on est au format large, type tablette
+		// si on est au large_breakpoint
 		else if(ww_w > tiny_breakpoint && ww_w <= large_breakpoint) {
-			if(!$this.hasClass('is-large')){
+			if(!$this.hasClass('is-lg-img')){
 				$this
-					.addClass('is-large')
-					.removeClass('is-tiny is-max')
-					.css("background-image", "url("+ img_large +")");
+					.addClass('is-lg-img')
+					.removeClass('is-sm-img is-max-img')
+					.css("background-image", "url("+ lg_img +")");
 			}
 			$this.css('height', ww_h);
 		}
-		// si on est au format max, type desktop
+		// si on est au max_breakpoint
 		else {
-			if(!$this.hasClass('is-max')){
+			if(!$this.hasClass('is-max-img')){
 				$this
-					.addClass('is-max')
-					.removeClass('is-tiny is-large')
-					.css("background-image", "url("+ img_max +")");
+					.addClass('is-max-img')
+					.removeClass('is-sm-img is-lg-img')
+					.css("background-image", "url("+ max_img +")");
 			}
 			$this.css('height', ww_h);
 		}
