@@ -19,11 +19,12 @@ function im_hero(target, tiny_breakpoint, large_breakpoint, max_breakpoint){
 		// 1. si les arguments de la fonction sont manquants
 		if(typeof target === 'undefined' || typeof tiny_breakpoint === 'undefined' || typeof large_breakpoint === 'undefined' || typeof max_breakpoint === 'undefined') { 
             console.log('One or several argument(s) are missing or empty, please add/fill it first :)'); 
+            return;
         }
 
 		// 1bis. si les attributs sont manquants ou vides
 		if(!sm_img || !lg_img || !max_img) {
-			console.log('One or several "data-XXX-img" attribute(s) are missing or empty, please add/fill them first :)');
+			console.log('One or several "data-XXX-img" attribute(s) are missing or empty, please add/fill it first :)');
 			return;
 		}
 
