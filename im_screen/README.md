@@ -11,7 +11,11 @@
 ###jQuery
 
 	$(document).ready(function(){
-		im_screen(480, 640, 768, 1024);
+		im_screen(480, 640, 768, 1024); // 1ere initialisation
+
+		$(window).resize(function() {
+			im_screen(480, 640, 768, 1024); // a chaque resize de la fenetre
+		});
 	});
 
 ##Arguments
