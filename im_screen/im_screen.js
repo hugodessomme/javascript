@@ -5,6 +5,7 @@ function im_screen(tiny_breakpoint, medium_breakpoint, large_breakpoint, big_bre
 
         if(typeof tiny_breakpoint === 'undefined' || typeof medium_breakpoint === 'undefined' || typeof large_breakpoint === 'undefined' || typeof big_breakpoint === 'undefined') { 
             console.log('One or several "XXX_breakpoint" argument(s) are missing or empty, please add/fill it first :)'); 
+            return;
         }
 
         // si on est au tiny_breakpoint
