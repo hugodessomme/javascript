@@ -4,7 +4,7 @@ function im_screen(tiny_breakpoint, medium_breakpoint, large_breakpoint, big_bre
             ww_w = $(window).width();
 
         if(typeof tiny_breakpoint === 'undefined' || typeof medium_breakpoint === 'undefined' || typeof large_breakpoint === 'undefined' || typeof big_breakpoint === 'undefined') { 
-            console.log('One or several "XXX_breakpoint" parameters are missing or empty, please add/fill first :)'); 
+            console.log('One or several "XXX_breakpoint" argument(s) are missing or empty, please add/fill it first :)'); 
         }
 
         // si on est au tiny_breakpoint
