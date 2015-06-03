@@ -32,4 +32,4 @@
 2. si la largeur d'écran est **supérieure** à `tiny_breakpoint` et **inférieure ou égale** à `medium_breakpoint`, génération de la classe `is-md-screen`
 3. si la largeur d'écran est **supérieure** à `medium_breakpoint` et **inférieure ou égale** à `large_breakpoint`, génération de la classe `is-lg-screen`
 4. si la largeur d'écran est **supérieure** à `large_breakpoint` et **inférieure ou égale** à `big_breakpoint`, génération de la classe `is-bg-screen`
-5. si la largeur d'écran est **supérieure ou égale** à `big_breakpoint`, génération de la classe `is-max-screen`
+5. si la largeur d'écran est **supérieure** à `big_breakpoint`, génération de la classe `is-max-screen`
