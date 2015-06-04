@@ -4,7 +4,7 @@
 
 ##Aperçu
 
-	im_screen(tiny_breakpoint, medium_breakpoint, large_breakpoint, big_breakpoint) 
+	im_screen(tiny_breakpoint, medium_breakpoint, large_breakpoint, big_breakpoint); 
 
 ##Utilisation (exemple)
 	
