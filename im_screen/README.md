@@ -1,24 +1,26 @@
-#im_screen.js
+# im_screen.js
 
 **Description** : *Génération d'une classe sur l'élément `html` suivant les 4 breakpoints définis (une 5ème classe est générée au-dessus de `big_breakpoint`).*
 
-##Aperçu
+## Aperçu
 
-	im_screen(tiny_breakpoint, medium_breakpoint, large_breakpoint, big_breakpoint); 
+`im_screen(tiny_breakpoint, medium_breakpoint, large_breakpoint, big_breakpoint);`
 
-##Utilisation (exemple)
-	
-###jQuery
+## Usage
 
-	$(document).ready(function(){
-		im_screen(480, 640, 768, 1024); // 1ere initialisation
+### jQuery
 
-		$(window).resize(function() {
-			im_screen(480, 640, 768, 1024); // a chaque resize de la fenetre
-		});
+```
+$(document).ready(function(){
+	im_screen(480, 640, 768, 1024); // 1ere initialisation
+
+	$(window).resize(function() {
+		im_screen(480, 640, 768, 1024); // a chaque resize de la fenetre
 	});
+});
+```
 
-##Arguments
+## Arguments
 
 * `tiny_breakpoint` : integer
 * `medium_breakpoint` : integer
@@ -26,7 +28,7 @@
 * `big_breakpoint` : integer
 
 
-##Fonctionnement
+## Fonctionnement
 
 1. si la largeur d'écran est **inférieure ou égale** à `tiny_breakpoint`, génération de la classe `is-sm-screen`
 2. si la largeur d'écran est **supérieure** à `tiny_breakpoint` et **inférieure ou égale** à `medium_breakpoint`, génération de la classe `is-md-screen`
